@@ -80,19 +80,18 @@ export function createCourseSummary(
   const lessonPlural = getLabelByKey('lesson.plural', labels)
   const presenterSingular = getLabelByKey('presenter.singular', labels)
   const presenterPlural = getLabelByKey('presenter.plural', labels)
+  const lessonTitles = lessons.map((lesson) => lesson.title)
+  const lessonUrl = lessons.map((lesson) => lesson.slug.current)
+  console.log(lessons.map((lesson) => lesson))
 
   if (lessons?.length) {
     value.push(lessons.length)
     value.push(lessons.length === 1 ? lessonSingular : lessonPlural)
-  }
+    value.push(':')
+    value.push(...lessonTitles)
+    value.push(...lessonUrl)
 
-  if (lessons?.length && presenters?.length) {
-    value.push(`//`)
-  }
-
-  if (presenters?.length) {
-    value.push(presenters.length)
-    value.push(presenters.length === 1 ? presenterSingular : presenterPlural)
+    // Get the titles of the lessons
   }
 
   return value

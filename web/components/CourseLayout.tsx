@@ -30,6 +30,8 @@ export function CourseLayout(props: CourseLayoutProps) {
   // array of references stored in a separate "translation.metadata" document
   const lessonPaths = useMemo(() => createLessonLinks(lessons, slug), [lessons, slug])
 
+  // console.log('lessons', lessons, 'slug', slug)
+  // console.log(lessonPaths)
   return (
     <>
       <div className="relative">

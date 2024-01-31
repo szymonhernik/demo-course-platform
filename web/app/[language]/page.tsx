@@ -31,6 +31,7 @@ export default async function Page({params}) {
       title: lang.title,
     }
   })
+  // console.log(homeInitial.data)
 
   return (
     <>
@@ -41,7 +42,7 @@ export default async function Page({params}) {
         params={isEnabled ? queryParams : DEFAULT_EMPTY_PARAMS}
         initial={homeInitial}
       >
-        <HomeLayout labels={labelsInitial.data} />
+        <HomeLayout />
       </LiveQueryWrapper>
     </>
   )

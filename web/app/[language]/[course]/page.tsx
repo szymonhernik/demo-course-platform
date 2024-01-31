@@ -69,10 +69,12 @@ export default async function Page({params}) {
         ]
       : acc
   }, [])
+  console.log('course', course)
 
   return (
     <>
       <Header translations={translations} currentLanguage={language} />
+      <p className="mt-16">Project</p>
       <LiveQueryWrapper
         isEnabled={isEnabled}
         query={isEnabled ? COURSE_QUERY : ''}

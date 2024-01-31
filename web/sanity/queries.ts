@@ -135,5 +135,29 @@ export const LESSON_QUERY = groq`*[_type == "lesson" && slug.current == $slug][0
 }`
 
 export const HOME_QUERY = groq`{
-  "courses": *[_type == "course" && count(presenters) > 0 && count(lessons) > 0]
+  "courses": *[_type == "course" && count(presenters) > 0 && count(lessons) > 0]{
+    ...,
+    "lessons": lessons[]->{
+      // Get each lesson's *base* language version's title and slug
+      language,
+      title,
+      slug,
+  
+      // ...and all its connected document-level translations
+      "translations": *[
+        // by finding the translation metadata document
+        _type == "translation.metadata" && 
+        // that contains this lesson's _id
+        ^._id in translations[].value._ref
+        // then map over the translations array
+      ][0].translations[]{
+        // and spread the "value" of each reference to the root level
+        ...(value->{
+          language,
+          title,
+          slug
+        })
+      }
+    },
+  }
 }`
