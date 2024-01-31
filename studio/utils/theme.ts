@@ -15,25 +15,25 @@ export const tailwindSlate = {
 }
 
 export const tailwindCyan = {
-  50: '#ecfeff',
-  100: '#cffafe',
-  200: '#a5f3fc',
-  300: '#67e8f9',
-  400: '#22d3ee',
-  500: '#06b6d4',
-  600: '#0891b2',
-  700: '#0e7490',
-  800: '#155e75',
-  900: '#164e63',
-  950: '#083344',
+  950: '#0d0e0b',
+  900: '#1a1c16',
+  800: '#272922',
+  700: '#34372d',
+  600: '#414538',
+  500: '#4e5343',
+  400: '#5b614e',
+  300: '#686e5a',
+  200: '#757c65',
+  100: '#828a70',
+  50: '#ffffff',
 }
 
 export const theme = buildLegacyTheme({
   '--black': tailwindCyan[950],
   '--white': '#fff',
-  '--brand-primary': tailwindCyan[500],
-  '--focus-color': tailwindCyan[500],
+  '--brand-primary': tailwindCyan[900],
+  '--focus-color': tailwindCyan[900],
   '--component-text-color': tailwindCyan[900],
   // buttons
-  '--default-button-color': tailwindCyan[600],
+  '--default-button-color': tailwindCyan[200],
 })

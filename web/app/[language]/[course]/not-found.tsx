@@ -20,10 +20,8 @@ export default function NotFound() {
     <div>
       <Header translations={[]} />
       <CourseLayout data={data}>
-        <p>
-          Could not find Course at <code>{pathname}</code>
-        </p>
-        <Link href="/">Return Home</Link>
+        <p>Could not find the page</p>
+        <Link href="/">Home</Link>
       </CourseLayout>
     </div>
   )

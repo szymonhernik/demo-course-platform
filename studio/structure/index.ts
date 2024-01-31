@@ -12,21 +12,20 @@ export const structure: StructureResolver = (S) =>
     .items([
       // Custom document-level translation structure
       S.listItem()
-        .title('Lessons')
-        .icon(FiAward)
+        .title('Projects')
         .child(
           S.list()
-            .title('Lessons')
+            .title('Projects')
             .items([
               ...i18n.languages.map((language) =>
                 S.listItem()
-                  .title(`Lessons (${language.id.toLocaleUpperCase()})`)
+                  .title(`Projects (${language.id.toLocaleUpperCase()})`)
                   .schemaType('lesson')
-                  .icon(FiAward)
+
                   .child(
                     S.documentList()
                       .id(language.id)
-                      .title(`${language.title} Lessons`)
+                      .title(`${language.title} Projects`)
                       .schemaType('lesson')
                       .filter('_type == "lesson" && language == $language')
                       .params({language: language.id})
@@ -60,7 +59,7 @@ export const structure: StructureResolver = (S) =>
               // If the intent checker above could account for it, I'd remove this item
               S.divider(),
               S.listItem()
-                .title(`All Lessons`)
+                .title(`All Projects`)
                 .schemaType('lesson')
                 .icon(FiAward)
                 .child(
@@ -78,12 +77,11 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
       // Field-level translations
-      S.documentTypeListItem('course').title('Courses'),
+      S.documentTypeListItem('course').title('Projects Groups listed on Homepage'),
       S.divider(),
-      S.documentTypeListItem('presenter').title('Presenters').icon(FiUsers),
-      S.divider(),
+
       // Market-specific portable text example
-      S.documentTypeListItem('legal').title('Legal'),
+      S.documentTypeListItem('legal').title('About'),
       S.divider(),
       // Singleton, field-level translations
       S.listItem()

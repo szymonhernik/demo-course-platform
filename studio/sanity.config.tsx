@@ -22,7 +22,7 @@ export default defineConfig({
   projectId: 'c46enho2',
   dataset: 'production',
   icon: Icon,
-  theme,
+  // theme,
 
   plugins: [
     structureTool({

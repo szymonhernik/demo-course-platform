@@ -7,7 +7,7 @@ import CourseMedia from '../../components/CourseMedia'
 
 export default defineType({
   name: 'course',
-  title: 'Course',
+  title: 'Projects Groups listed on Homepage',
   icon: FiBook,
   type: 'document',
   groups: [

@@ -5,8 +5,7 @@ import portableText from '../objects/portableText'
 
 export default defineType({
   name: 'legal',
-  title: 'Legal',
-  icon: FiArchive,
+  title: 'About',
   type: 'document',
   fields: [
     defineField({
@@ -33,7 +32,6 @@ export default defineType({
       return {
         title,
         subtitle: `/legal/${slug}`,
-        media: FiArchive,
       }
     },
   },

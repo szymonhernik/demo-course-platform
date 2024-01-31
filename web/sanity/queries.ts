@@ -1,10 +1,5 @@
 import {groq} from 'next-sanity'
 
-export const LABELS_QUERY = groq`*[_id == "labelGroup"][0].labels[]{
-  key,
-  "text": coalesce(text[$language], text[$defaultLocale]),
-}`
-
 export const PRESENTER_QUERY = groq`*[_type == "presenter" && slug.current == $slug][0]{
   ...,
   "title": coalesce(
