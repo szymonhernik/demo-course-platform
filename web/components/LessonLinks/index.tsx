@@ -34,6 +34,7 @@ export default function LessonLinks(props: LessonLinksProps) {
         .map((lessonGroup) => lessonGroup.find((lesson) => lesson.language === language)),
     [language, lessons]
   )
+  // console.log(lessons.map((lesson) => lesson))
 
   const {width} = useWindowSize()
 

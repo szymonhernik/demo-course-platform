@@ -46,7 +46,9 @@ export function createLessonLinks(
       // Each lesson must have a language
       .filter((lesson) => lesson?.language)
       .map((lesson) => {
+        // console.log(lesson)
         const translations = lesson.translations
+
           .filter((ref) => ref?.slug?.current)
           .map((ref) => {
             const lessonLang = ref.language
@@ -81,15 +83,11 @@ export function createCourseSummary(
   const presenterSingular = getLabelByKey('presenter.singular', labels)
   const presenterPlural = getLabelByKey('presenter.plural', labels)
   const lessonTitles = lessons.map((lesson) => lesson.title)
-  const lessonUrl = lessons.map((lesson) => lesson.slug.current)
-  console.log(lessons.map((lesson) => lesson))
 
   if (lessons?.length) {
     value.push(lessons.length)
     value.push(lessons.length === 1 ? lessonSingular : lessonPlural)
     value.push(':')
-    value.push(...lessonTitles)
-    value.push(...lessonUrl)
 
     // Get the titles of the lessons
   }

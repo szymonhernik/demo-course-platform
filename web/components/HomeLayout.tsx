@@ -35,8 +35,10 @@ export function HomeLayout(props: HomeLayoutProps) {
         courses?.length > 0 &&
         courses.map((course) => {
           // Generate lesson links for each course
-          const lessonPaths = createLessonLinks(course.lessons, course.slug.current)
+          const lessonPaths = createLessonLinks(course.lessons, course.slug)
           const numberOfProjects = course.lessons.length
+          // console.log(course.slug[language]?.current)
+          // const slug = course.slug[language]?.current
 
           return (
             <article
