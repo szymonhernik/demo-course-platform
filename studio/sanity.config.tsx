@@ -8,7 +8,6 @@ import {documentInternationalization} from '@sanity/document-internationalizatio
 import {languageFilter} from '@sanity/language-filter'
 import {internationalizedArray} from 'sanity-plugin-internationalized-array'
 import {schemaVisualizer} from 'sanity-plugin-schema-visualizer'
-import {googleTranslate} from 'sanity-plugin-google-translate'
 
 import {structure, defaultDocumentNode} from './structure'
 import {schemaTypes} from './schemas'
@@ -20,8 +19,8 @@ import Icon from './components/Icon'
 export default defineConfig({
   name: 'default',
   title: 'Course Platform',
-  projectId: '6h1mv88x',
-  dataset: 'production-v3',
+  projectId: 'c46enho2',
+  dataset: 'production',
   icon: Icon,
   theme,
 
@@ -72,7 +71,7 @@ export default defineConfig({
         return true
       },
     }),
-    googleTranslate(),
+
     visionTool(),
     schemaVisualizer({
       defaultSchemaTypes: ['course', 'lesson', 'presenter'],
