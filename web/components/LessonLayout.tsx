@@ -10,7 +10,7 @@ import {i18n} from '../../languages'
 import Blobs from './Blobs'
 import Button from './Button'
 import LessonLinks from './LessonLinks'
-import Presenters from './Presenters'
+
 import Prose from './Prose'
 import Title from './Title'
 
@@ -51,7 +51,7 @@ export function LessonLayout(props: LessonLayoutProps) {
       <div className="relative z-10">
         <section className="bg-gradient-to-r mix-blend-multiply from-cyan-100 via-transparent to-transparent pt-16">
           <div className="container mx-auto py-8 p-4 md:p-8 xl:p-16 flex flex-col justify-start items-start gap-4 xl:gap-8">
-            <Title subtitle={<Presenters presenters={presenters} />}>{title}</Title>
+            <Title>{title}</Title>
             {coursePath && course && backLabel && (
               <Button href={`/${coursePath}`} Icon={ChevronLeftIcon} iconFirst>
                 {backLabel}
@@ -61,15 +61,6 @@ export function LessonLayout(props: LessonLayoutProps) {
         </section>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8 xl:gap-16 p-4 md:p-8 xl:p-16 container mx-auto">
-          {lessons?.length > 0 ? (
-            <div className="md:col-span-2 md:col-start-4 md:sticky md:top-24 self-start">
-              <h2 className="font-display text-lg md:text-2xl text-cyan-800 mb-2 md:mb-4">
-                {course.title[language]}
-              </h2>
-              <LessonLinks lessons={lessonPaths} />
-            </div>
-          ) : null}
-
           {content?.length > 0 ? (
             <div className="md:col-span-3 md:col-start-1 md:row-start-1">
               {summary ? (
@@ -96,7 +87,6 @@ export function LessonLayout(props: LessonLayoutProps) {
           ) : null}
         </div>
       </div>
-      <Blobs />
     </>
   )
 }

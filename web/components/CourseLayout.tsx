@@ -9,7 +9,7 @@ import Title from '@/components/Title'
 import {createLessonLinks} from '@/lib/helpers'
 
 import {i18n} from '../../languages'
-import Presenters from './Presenters'
+
 import Prose from './Prose'
 
 type CourseLayoutProps = PropsWithChildren<{
@@ -37,7 +37,7 @@ export function CourseLayout(props: CourseLayoutProps) {
       <div className="relative">
         <section className="bg-gradient-to-r mix-blend-multiply from-cyan-100 via-transparent to-transparent pt-16">
           <div className="container mx-auto py-8 p-4 md:p-8 xl:p-16 flex flex-col justify-start items-start gap-2 md:gap-4 xl:gap-8">
-            <Title subtitle={<Presenters presenters={presenters} />}>{currentTitle}</Title>
+            <Title>{currentTitle}</Title>
             {/* {title} */}
           </div>
         </section>

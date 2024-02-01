@@ -9,10 +9,10 @@ import {LessonLayout} from '@/components/LessonLayout'
 import {LiveQueryWrapper} from '@/components/LiveQueryWrapper'
 import {COMMON_PARAMS, DEFAULT_EMPTY_PARAMS} from '@/lib/constants'
 import {createLessonLinks} from '@/lib/helpers'
-import {Label} from '@/lib/types'
+
 import {getLessonsWithSlugs} from '@/sanity/fetchers'
 import {loadQuery} from '@/sanity/lib/store'
-import {LABELS_QUERY, LESSON_QUERY} from '@/sanity/queries'
+import {LESSON_QUERY} from '@/sanity/queries'
 
 export async function generateStaticParams() {
   const lessons = await getLessonsWithSlugs()
@@ -41,9 +41,6 @@ export default async function Page({params}) {
     perspective: isEnabled ? 'previewDrafts' : 'published',
     next: {tags: ['lesson']},
   })
-  const labelsInitial = await loadQuery<Label[]>(LABELS_QUERY, queryParams, {
-    perspective: isEnabled ? 'previewDrafts' : 'published',
-  })
 
   if (!initial.data) {
     notFound()
@@ -64,7 +61,7 @@ export default async function Page({params}) {
         params={isEnabled ? queryParams : DEFAULT_EMPTY_PARAMS}
         initial={initial}
       >
-        <LessonLayout labels={labelsInitial.data} />
+        <LessonLayout />
       </LiveQueryWrapper>
     </>
   )

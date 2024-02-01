@@ -29,7 +29,7 @@ export default async function RootLayout(props) {
       </head>
       <body className="font-sans bg-white text-gray-900">
         {props.children}
-        <LegalLinks data={initial.data} />
+
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
